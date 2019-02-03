@@ -1,0 +1,42 @@
+{
+  "name": "@beyonk/svelte-googlemaps",
+  "svelte": "src/components.js",
+  "module": "index.mjs",
+  "main": "index.js",
+  "version": "0.3.1",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "NODE_ENV=development rollup -cw",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@gen/rollup-plugin-generate-html": "^0.1.1",
+    "rollup": "^0.66.6",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-postcss": "^1.6.2",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-serve": "^0.6.1",
+    "rollup-plugin-svelte": "^4.3.2",
+    "rollup-plugin-svg": "^1.0.1",
+    "rollup-plugin-typescript": "^1.0.0",
+    "svelte": "^2.14.3",
+    "tslib": "^1.9.3",
+    "typescript": "^3.1.3"
+  },
+  "keywords": [
+    "svelte",
+    "google",
+    "gmaps",
+    "maps",
+    "google apis",
+    "googlemaps",
+    "places",
+    "geolocation"
+  ],
+  "files": [
+    "src",
+    "index.mjs",
+    "index.js"
+  ]
+}

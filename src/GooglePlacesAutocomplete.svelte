@@ -1,4 +1,4 @@
-<input class="{styleClass}" {placeholder} ref:search type="text" disabled="{disabled}" on:change="change()" />
+<input class="{styleClass}" {placeholder} ref:search type="text" disabled="{disabled}"  />
 
 <script>
   export default {
@@ -27,10 +27,19 @@
     },
 
     methods: {
-      change () {
-        this.fire('dirty')
-        this.fire('update', { place: undefined })
+      // change () {
+      //   this.fire('dirty')
+      //   this.fire('clear')
+      //   this.clear()
+      // },
+
+      clear () {
+        this.refs.search.value = ''
         this.set({ value: undefined })
+      },
+
+      setDisplayValue (value) {
+        this.refs.search.value = value
       },
 
       initialise () {
@@ -48,11 +57,18 @@
         autocomplete.addListener('place_changed', () => {
           const { autocomplete } = this.get()
           const place = autocomplete.getPlace()
-          this.set({ value: place })
-          this.fire('update', { place })
+          if (place) {
+            this.set({ value: place })
+            this.fire('placeChanged', { place })
+          } else {
+            this.fire('clear')
+            this.clear()
+          }
         })
 
         google.maps.event.addDomListener(search, 'blur', this.fire('blur'))
+
+        this.fire('ready')
       }
     }
   }

@@ -4,7 +4,7 @@
 
 ## Svelte Google Maps
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-notifications.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-notifications)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-googlemaps.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-googlemaps)
 
 Maps and Places components in Vanilla JS (or Svelte)
 
@@ -12,9 +12,11 @@ Particular focus on efficient loading of Google components in an SPA.
 
 SSR Ready
 
-## Demo
+## WIP
 
-[Svelte Notifications Demo](https://svelte.technology/repl?version=2.15.2&gist=381a8e97686c28ccface39c3f005116e)
+Documentation is a WIP. Be prepared to examine the source code to get any use out of this right now!
+
+The `GoogleSdk` components handles map loading, callbacks, and api deduplication, and the `GoogleMap` and `GooglePlaceSAutocomplete` components use the resulting API.
 
 ## Usage
 
@@ -36,95 +38,22 @@ export default {
 
 ## Usage
 
+### Map
+
 ```jsx
-<Notifications ref:notifications />
+<GoogleSdk apiKey="your-maps-api-key" />
+<GooglePlacesAutocomplete />
+<GoogleMap />
 
 <script>
-  import Notifications from '@beyonk/svelte-notifications'
+  import { GoogleSdk, GooglePlacesAutocomplete } from '@beyonk/svelte-googlemaps'
 
   export default {
-    methods: {
-      notify () {
-        const { notifications } = this.refs
-        const message = 'bad things!'
-        const displayTimeMs = 7000
-        notifications.danger(message, displayTimeMs)
-      }
-    },
-
     components: {
-      Notifications
+      GoogleSdk,
+      GoogleMap,
+      GooglePlacesAutocomplete
     }
   }
 </script>
 ```
-
-You can call multiple types of notification:
-
-```js
-notifications.show(message, displayTimeMs)
-notifications.danger(message, displayTimeMs),
-notifications.warning(message, displayTimeMs),
-notifications.info(message, displayTimeMs),
-notifications.success(message, displayTimeMs)
-```
-
-and you can customise the colours:
-
-```jsx
-<Notifications ref:notifications {timeout} {themes} />
-
-<script>
-  import Notifications from '@beyonk/svelte-notifications'
-
-  export default {
-    data () {
-			return {
-        timeout: 10000, // set a default timeout
-				themes: { // These are the defaults
-					danger: '#bb2124',
-					success: '#22bb33',
-					warning: '#f0ad4e',
-					info: '#5bc0de',
-					default: '#aaaaaa' // relates to simply '.show()'
-				}
-			}
-		},
-
-    methods: {
-      notify () {
-        const { notifications } = this.refs
-        const message = 'bad things!'
-        const displayTimeMs = 7000
-        notifications.danger(message, displayTimeMs)
-      }
-    },
-
-    components: {
-      Notifications
-    }
-  }
-</script>
-```
-
-### To use within a regular JS application:
-
-```jsx
-<div id="notifications"></div>
-
-import Notifications from '@beyonk/svelte-notifications'
-
-const notifications = new Notifications({
-  target: document.getElementById('#notifications'),
-  data: {
-    // any of the configuration from above
-  }
-})
-
-notifications.danger('oh no!', 7000)
-```
-
-## Credits
-
-* Original code by [Antony Jones](https://github.com/antony)
-* Animation and performance improvements by jg.

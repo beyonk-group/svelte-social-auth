@@ -38,7 +38,7 @@
 				</aside>
 				<div class="content-info">
 					<div class="section-txt" id="places-autocomplete">
-						<PlacesAutocomplete apiKey="%API_KEY%" bind:value="place" />
+						<GooglePlacesAutocomplete apiKey="%API_KEY%" bind:value="place" />
             {#if place}
               <dl>
 								<dt>Name:</dt>
@@ -50,7 +50,7 @@
           </div>
 					<div class="section-txt" id="map">
 						<div class="map-wrap">
-							<Map apiKey="%API_KEY%" on:dragend="mapRecentre(event.center)" bind:map bind:center />
+							<GoogleMap apiKey="%API_KEY%" on:dragend="mapRecentre(event.center)" bind:map bind:center />
 						</div>
 						{#if center}
 							<dt>Geolocation:</dt>
@@ -122,8 +122,8 @@
 
     components: {
       GoogleSdk: '../src/GoogleSdk.svelte',
-			PlacesAutocomplete: '../src/PlacesAutocomplete.svelte',
-			Map: '../src/Map.svelte'
+			GooglePlacesAutocomplete: '../src/GooglePlacesAutocomplete.svelte',
+			GoogleMap: '../src/GoogleMap.svelte'
     }
   }
 </script>

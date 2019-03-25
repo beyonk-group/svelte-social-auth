@@ -10,6 +10,8 @@ Maps and Places components in Vanilla JS (or Svelte)
 
 Particular focus on efficient loading of Google components in an SPA.
 
+SSR Ready
+
 ## Demo
 
 [Svelte Notifications Demo](https://svelte.technology/repl?version=2.15.2&gist=381a8e97686c28ccface39c3f005116e)

@@ -1,6 +1,7 @@
 <svelte:head>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </svelte:head>
+<GoogleSdk ref:sdk apiKey="%API_KEY%" />
 <header>
 	<div class="container">
 		<div class="row">
@@ -30,6 +31,7 @@
 						<nav>
 							<ul>
 								<li><a href="#places-autocomplete" on:click="navigate('places-autocomplete')" class:current="page === 'places-autocomplete'">Places Autocomplete</a></li>
+								<li><a href="#map" on:click="navigate('map')" class:current="page === 'map'">Map</a></li>
 							</ul>					
 						</nav>
 					</div>
@@ -45,6 +47,15 @@
 								<dd>lat: {place.geometry.location.lat()}, lng: {place.geometry.location.lng()}</dd>
 							</dl>
             {/if}
+          </div>
+					<div class="section-txt" id="map">
+						<div class="map-wrap">
+							<Map apiKey="%API_KEY%" on:dragend="mapRecentre(event.center)" bind:map bind:center />
+						</div>
+						{#if center}
+							<dt>Geolocation:</dt>
+							<dd>lat: {center.lat}, lng: {center.lng}</dd>
+						{/if}
           </div>
 				</div>
 			</div>
@@ -70,6 +81,13 @@
 	</div>
 </footer>
 
+<style>
+	.map-wrap {
+		width: 100%;
+		height: 300px;
+	}
+</style>
+
 <script>
   import './normalize.css'
   import './prettify.css'
@@ -82,18 +100,30 @@
       return {
         logo,
         page: 'about',
-        place: undefined
+				place: undefined,
+				center: {
+					lat: 53.58547136412861,
+					lng: -2.6269888562500228
+				},
+				map: undefined
       }
-    },
+		},
 
-    methods: {
+    methods: {			
       navigate (page) {
         this.set({ page })
-      }
+			},
+			
+			mapRecentre (center) {
+				const { latLng } = center
+        this.set({ center: latLng })
+			}
     },
 
     components: {
-      PlacesAutocomplete: '../src/PlacesAutocomplete.svelte'
+      GoogleSdk: '../src/GoogleSdk.svelte',
+			PlacesAutocomplete: '../src/PlacesAutocomplete.svelte',
+			Map: '../src/Map.svelte'
     }
   }
 </script>

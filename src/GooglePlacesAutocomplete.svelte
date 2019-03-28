@@ -34,6 +34,7 @@
           viewValue: null,
           currentPlace: null
         })
+        this.fire('clear')
       },
 
       blur () {
@@ -64,7 +65,6 @@
             this.fire('placeChanged', { place })
           } else {
             this.clear()
-            this.fire('clear')
           }
         })
 

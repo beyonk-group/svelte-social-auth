@@ -21,7 +21,8 @@
         styles: [],
         center: undefined,
         provider: 'BEYONK',
-        lib: '@beyonk/svelte-googlemaps'
+        lib: '@beyonk/svelte-googlemaps',
+        options: {}
       }
     },
 
@@ -51,12 +52,6 @@
         const { map } = this.refs
         map.style.maxHeight = height
       },
-
-      // change () {
-      //   this.fire('dirty')
-      //   this.fire('update', { place: undefined })
-      //   this.set({ value: undefined })
-      // },
 
       setCentre (latLng) {
         const { map } = this.refs

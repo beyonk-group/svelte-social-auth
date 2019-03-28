@@ -1,4 +1,4 @@
-<input class="{styleClass}" {placeholder} ref:search type="text" disabled="{disabled}"  />
+<input class="{styleClass}" {placeholder} ref:search type="text" disabled="{disabled}" bind:value="viewValue" on:blur="blur()" />
 
 <script>
   export default {
@@ -9,7 +9,8 @@
         apiKey: undefined,
         placeholder: 'Location',
         styleClass: '',
-        value: undefined,
+        value: null,
+        viewValue: null,
         options: {
           types: ['(regions)'],
           fields: ['geometry', 'formatted_address']
@@ -27,19 +28,20 @@
     },
 
     methods: {
-      // change () {
-      //   this.fire('dirty')
-      //   this.fire('clear')
-      //   this.clear()
-      // },
-
       clear () {
-        this.refs.search.value = ''
-        this.set({ value: undefined })
+        this.set({
+          value: null,
+          viewValue: null,
+          currentPlace: null
+        })
       },
 
-      setDisplayValue (value) {
-        this.refs.search.value = value
+      blur () {
+        this.fire('blur')
+        const { viewValue, currentPlace } = this.get()
+        if (viewValue !== currentPlace) {
+          this.clear()
+        }
       },
 
       initialise () {
@@ -55,18 +57,16 @@
         this.set({ autocomplete, disabled: false })
         
         autocomplete.addListener('place_changed', () => {
-          const { autocomplete } = this.get()
+          const { autocomplete, viewValue } = this.get()
           const place = autocomplete.getPlace()
-          if (place) {
-            this.set({ value: place })
+          if (!!place.geometry) {
+            this.set({ value: place, currentPlace: viewValue })
             this.fire('placeChanged', { place })
           } else {
-            this.fire('clear')
             this.clear()
+            this.fire('clear')
           }
         })
-
-        google.maps.event.addDomListener(search, 'blur', this.fire('blur'))
 
         this.fire('ready')
       }

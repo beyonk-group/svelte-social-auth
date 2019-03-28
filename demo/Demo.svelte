@@ -50,7 +50,7 @@
           </div>
 					<div class="section-txt" id="map">
 						<div class="map-wrap">
-							<GoogleMap apiKey="%API_KEY%" on:dragend="mapRecentre(event.center)" bind:map bind:center />
+							<GoogleMap apiKey="%API_KEY%" on:dragend="mapRecentre(event.center)" options={mapConfig} />
 						</div>
 						{#if center}
 							<dt>Geolocation:</dt>
@@ -100,10 +100,13 @@
       return {
         logo,
         page: 'about',
-				place: undefined,
-				center: {
-					lat: 53.58547136412861,
-					lng: -2.6269888562500228
+				place: null,
+				mapConfig: {
+					center: {
+						lat: 53.58547136412861,
+						lng: -2.6269888562500228
+					},
+					zoom: 7
 				},
 				map: undefined
       }

@@ -62,7 +62,8 @@
           const { autocomplete, viewValue } = this.get()
           const place = autocomplete.getPlace()
           if (!!place.geometry) {
-            this.set({ value: place, currentPlace: viewValue })
+            const { formatted_address } = place
+            this.set({ value: place, viewValue: formatted_address, currentPlace: formatted_address })
             this.fire('placeChanged', { place })
           } else {
             this.clear()

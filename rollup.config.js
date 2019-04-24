@@ -47,7 +47,10 @@ if (dev) {
       filename: 'index.html', // Default index.html
       publicPath: 'dist' // Default undefined
 		}),
-		serve()
+		serve({
+			contentBase: 'dist',
+			port: 12001
+		})
 	)
 	output.push(
 			...output.map(o => {

@@ -50,3 +50,4 @@ The `GoogleSdk` components handles map loading, callbacks, and api deduplication
 | on:placeChanged | Place changed event | any function | - |
 | placeholder | placeholder text | any string | - |
 | styleClass | css styles for input | any classes | - |
+

@@ -1,4 +1,4 @@
-<input class="{styleClass}" {placeholder} ref:search type="text" disabled="{disabled}" bind:value="viewValue" on:blur="blur()" />
+<input aria-label="{ariaLabel}" class="{styleClass}" {placeholder} ref:search type="text" disabled="{disabled}" bind:value="viewValue" on:blur="blur()" />
 
 <script>
   export default {
@@ -6,6 +6,7 @@
 
     data () {
       return {
+        ariaLabel: 'location',
         apiKey: undefined,
         placeholder: 'Location',
         styleClass: '',

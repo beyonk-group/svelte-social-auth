@@ -22,24 +22,6 @@ The `GoogleSdk` components handles map loading, callbacks, and api deduplication
 
 ### To use within a Svelte application:
 
-```bash
-npm i -D @beyonk/svelte-notifications
-```
-
-```js
-import Notifications from '@beyonk/svelte-notifications'
-
-export default {
-	components: {
-    Notifications
-  }
-}
-```
-
-## Usage
-
-### Map
-
 ```jsx
 <GoogleSdk apiKey="your-maps-api-key" />
 <GooglePlacesAutocomplete />
@@ -57,3 +39,14 @@ export default {
   }
 </script>
 ```
+
+### Options
+
+## Autocomplete
+
+| Attribute | Purpose | Allowed | Default |
+|---|---|---|---|
+| ariaLabel | Sets aria-label value on input | string | 'location' |
+| on:placeChanged | Place changed event | any function | - |
+| placeholder | placeholder text | any string | - |
+| styleClass | css styles for input | any classes | - |

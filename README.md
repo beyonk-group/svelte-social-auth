@@ -9,7 +9,7 @@
 Google and Facebook Auth
 
 SSR Ready
-Svelte v3
+Svelte v3 + v2
 
 ## Usage
 
@@ -19,6 +19,17 @@ Svelte v3
 
 <script>
   import { GoogleAuth, FacebookAuth } from '@beyonk/svelte-social-auth'
+</script>
+```
+
+## Usage with v2
+
+```jsx
+<GoogleAuth clientId="your-google-auth-client-id" on:auth-success={e => console.dir(e.detail.user)} />
+<FacebookAuth appId="your-facebook-app-id" on:auth-success={e => console.dir(e.detail.user)} />
+
+<script>
+  import { GoogleAuth, FacebookAuth } from '@beyonk/svelte-social-auth/src/components.v2.js'
 </script>
 ```
 

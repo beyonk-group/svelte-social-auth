@@ -94,8 +94,7 @@
 
 	import logo from './logo.svg'
 
-	import GoogleAuth from '../src/GoogleAuth.svelte'
-	import FacebookAuth from '../src/FacebookAuth.svelte'
+	import { GoogleAuth, FacebookAuth } from '../src/components'
 
 	let page = 'google-auth'
 	

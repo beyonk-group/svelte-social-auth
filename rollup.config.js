@@ -19,11 +19,11 @@ const dev = process.env.NODE_ENV === 'development'
 const plugins = [
 	ts(),
 	resolve(),
-	commonjs(),
+	commonjs({
+		include: /node_modules/
+	}),
 	css(),
 	svelte({
-		cascade: false,
-		store: true
 	})
 ]
 
@@ -35,7 +35,7 @@ const output = [
 if (dev) {
 	plugins.unshift(
 		replace({
-			API_KEY: process.env.API_KEY,
+			CLIENT_ID: process.env.CLIENT_ID,
 			include: 'demo/Demo.svelte',
 			delimiters: ['%', '%']
 		}),

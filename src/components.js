@@ -1,11 +1,7 @@
 'use strict'
 
-import GoogleSdk from './GoogleSdk.svelte'
-import GoogleMap from './GoogleMap.svelte'
-import GooglePlacesAutocomplete from './GooglePlacesAutocomplete.svelte'
+import GoogleAuth from './GoogleAuth.svelte'
 
 export {
-  GoogleSdk,
-  GoogleMap,
-  GooglePlacesAutocomplete
+  GoogleAuth
 }

@@ -2,52 +2,43 @@
   <img width="186" height="90" src="https://user-images.githubusercontent.com/218949/44782765-377e7c80-ab80-11e8-9dd8-fce0e37c235b.png" alt="Beyonk" />
 </p>
 
-## Svelte Google Maps
+## Svelte Social Auth
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-googlemaps.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-googlemaps)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-social-auth.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-social-auth)
 
-Maps and Places components in Vanilla JS (or Svelte)
-
-Particular focus on efficient loading of Google components in an SPA.
+Google and Facebook Auth
 
 SSR Ready
-
-## WIP
-
-Documentation is a WIP. Be prepared to examine the source code to get any use out of this right now!
-
-The `GoogleSdk` components handles map loading, callbacks, and api deduplication, and the `GoogleMap` and `GooglePlaceSAutocomplete` components use the resulting API.
+Svelte v3
 
 ## Usage
 
-### To use within a Svelte application:
+### Google Auth
 
 ```jsx
-<GoogleSdk apiKey="your-maps-api-key" />
-<GooglePlacesAutocomplete />
-<GoogleMap />
+<GoogleAuth clientId="your-google-auth-client-id" on:auth-success={e => console.dir(e.detail.user)} />
 
 <script>
-  import { GoogleSdk, GooglePlacesAutocomplete } from '@beyonk/svelte-googlemaps'
-
-  export default {
-    components: {
-      GoogleSdk,
-      GoogleMap,
-      GooglePlacesAutocomplete
-    }
-  }
+  import { GoogleAuth } from '@beyonk/svelte-social-auth'
 </script>
 ```
 
-### Options
+### Attributes
 
-## Autocomplete
+The attributes for the GoogleAuth component are:
 
-| Attribute | Purpose | Allowed | Default |
-|---|---|---|---|
-| ariaLabel | Sets aria-label value on input | string | 'location' |
-| on:placeChanged | Place changed event | any function | - |
-| placeholder | placeholder text | any string | - |
-| styleClass | css styles for input | any classes | - |
+| Attribute | Description | Type | Default |
+|---|---|---| --- |
+| clientId | Google service account client id | string | - |
+
+### Events
+
+The events fired by the GoogleAuth component are:
+
+| Event | Purpose | Properties |
+|---|---|---|
+| on:auth-success | User authentication success | { user } |
+| on:auth-failure | User authentication failure | { error } |
+| on:init-error | Google Auth initialisation failure | { error } |
+
 

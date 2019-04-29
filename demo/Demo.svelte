@@ -1,7 +1,6 @@
 <svelte:head>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </svelte:head>
-<GoogleSdk ref:sdk apiKey="%API_KEY%" />
 <header>
 	<div class="container">
 		<div class="row">
@@ -12,11 +11,11 @@
 			</div>
 			<div class="col-lg-8 col-md-7 col-xs-12">
 				<div class="slogan">
-					Svelte Google Maps Developer Documentation
+					Svelte Social Auth Developer Documentation
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-3 col-xs-12 right">
-				<a class="btn" href="http://www.github.com/beyonk-adventures/svelte-googlemaps">Github</a>
+				<a class="btn" href="http://www.github.com/beyonk-adventures/svelte-social-auth">Github</a>
 			</div>
 		</div>
 	</div>
@@ -30,32 +29,19 @@
 						<h4>Navigation</h4>	
 						<nav>
 							<ul>
-								<li><a href="#places-autocomplete" on:click="navigate('places-autocomplete')" class:current="page === 'places-autocomplete'">Places Autocomplete</a></li>
-								<li><a href="#map" on:click="navigate('map')" class:current="page === 'map'">Map</a></li>
+								<li><a href="#google-auth" on:click={() => { navigate('google-auth') }} class:current={page === 'google-auth'}>Google Auth</a></li>
 							</ul>					
 						</nav>
 					</div>
 				</aside>
 				<div class="content-info">
-					<div class="section-txt" id="places-autocomplete">
-						<GooglePlacesAutocomplete apiKey="%API_KEY%" bind:value="place" />
-            {#if place}
-              <dl>
-								<dt>Name:</dt>
-								<dd>{place.formatted_address}</dd>
-								<dt>Geolocation:</dt>
-								<dd>lat: {place.geometry.location.lat()}, lng: {place.geometry.location.lng()}</dd>
-							</dl>
-            {/if}
-          </div>
-					<div class="section-txt" id="map">
-						<div class="map-wrap">
-							<GoogleMap apiKey="%API_KEY%" on:dragend="mapRecentre(event.center)" options={mapConfig} />
-						</div>
-						{#if center}
-							<dt>Geolocation:</dt>
-							<dd>lat: {center.lat}, lng: {center.lng}</dd>
-						{/if}
+					<div class="section-txt" id="google-auth">
+						<GoogleAuth 
+							clientId="%CLIENT_ID%"
+							on:init-error={ev => alert('init error')}
+							on:auth-failure={ev => alert('auth failure')}
+							on:auth-success={ev => console.dir(ev.detail.user) }
+						/>
           </div>
 				</div>
 			</div>
@@ -75,7 +61,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 center">
-				© 2018 Beyonk. All rights reserved.
+				© 2019 Beyonk. All rights reserved.
 			</div>
 		</div>
 	</div>
@@ -93,40 +79,14 @@
   import './prettify.css'
   import './style.css'
 
-  import logo from './logo.svg'
+	import logo from './logo.svg'
 
-  export default {
-    data () {
-      return {
-        logo,
-        page: 'about',
-				place: null,
-				mapConfig: {
-					center: {
-						lat: 53.58547136412861,
-						lng: -2.6269888562500228
-					},
-					zoom: 7
-				},
-				map: undefined
-      }
-		},
+	import GoogleAuth from '../src/GoogleAuth.svelte'
 
-    methods: {			
-      navigate (page) {
-        this.set({ page })
-			},
-			
-			mapRecentre (center) {
-				const { latLng } = center
-        this.set({ center: latLng })
-			}
-    },
-
-    components: {
-      GoogleSdk: '../src/GoogleSdk.svelte',
-			GooglePlacesAutocomplete: '../src/GooglePlacesAutocomplete.svelte',
-			GoogleMap: '../src/GoogleMap.svelte'
-    }
-  }
+	let page = 'google-auth'
+	
+	function navigate (nextPage) {
+		page = nextPage
+	}
+	
 </script>

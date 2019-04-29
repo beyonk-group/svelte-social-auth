@@ -25,7 +25,7 @@
 
   button span {
     font-family: Roboto, sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     padding: 0 12px;
     color: white;
@@ -80,6 +80,7 @@
     window[provider][lib] = window[provider][lib] || {}
 
     if (window[provider][lib].loader) {
+      init()
       return
     }
 

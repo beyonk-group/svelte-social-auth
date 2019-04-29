@@ -8,6 +8,7 @@ import ts from 'rollup-plugin-typescript'
 import html from '@gen/rollup-plugin-generate-html'
 import replace from 'rollup-plugin-replace'
 import svg from 'rollup-plugin-svg'
+import fs from 'fs'
 
 const name = pkg.name
 	.replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
@@ -35,7 +36,8 @@ const output = [
 if (dev) {
 	plugins.unshift(
 		replace({
-			CLIENT_ID: process.env.CLIENT_ID,
+			GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+			FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID,
 			include: 'demo/Demo.svelte',
 			delimiters: ['%', '%']
 		}),
@@ -49,7 +51,11 @@ if (dev) {
 		}),
 		serve({
 			contentBase: 'dist',
-			port: 12001
+			port: 12001,
+			https: {
+				key: fs.readFileSync('./.certs/server.key'),
+				cert: fs.readFileSync('./.certs/server.crt')
+			},
 		})
 	)
 	output.push(

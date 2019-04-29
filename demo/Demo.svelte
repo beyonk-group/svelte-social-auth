@@ -30,19 +30,32 @@
 						<nav>
 							<ul>
 								<li><a href="#google-auth" on:click={() => { navigate('google-auth') }} class:current={page === 'google-auth'}>Google Auth</a></li>
+								<li><a href="#google-auth" on:click={() => { navigate('facebook-auth') }} class:current={page === 'google-auth'}>Facebook Auth</a></li>
 							</ul>					
 						</nav>
 					</div>
 				</aside>
 				<div class="content-info">
+					{#if page === 'google-auth'}
 					<div class="section-txt" id="google-auth">
 						<GoogleAuth 
-							clientId="%CLIENT_ID%"
-							on:init-error={ev => alert('init error')}
+							clientId="%GOOGLE_CLIENT_ID%"
+							on:init-error={ev => alert(ev.detail.error.error)}
 							on:auth-failure={ev => alert('auth failure')}
 							on:auth-success={ev => console.dir(ev.detail.user) }
 						/>
           </div>
+					{/if}
+					{#if page === 'facebook-auth'}
+					<div class="section-txt" id="facebook-auth">
+						<FacebookAuth 
+							appId="%FACEBOOK_APP_ID%"
+							on:init-error={ev => alert(ev.detail.error.message)}
+							on:auth-failure={ev => alert('auth failure')}
+							on:auth-success={ev => console.dir(ev.detail.user) }
+						/>
+          </div>
+					{/if}
 				</div>
 			</div>
 		</div>
@@ -82,6 +95,7 @@
 	import logo from './logo.svg'
 
 	import GoogleAuth from '../src/GoogleAuth.svelte'
+	import FacebookAuth from '../src/FacebookAuth.svelte'
 
 	let page = 'google-auth'
 	

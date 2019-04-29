@@ -41,4 +41,8 @@ The events fired by the GoogleAuth component are:
 | on:auth-failure | User authentication failure | { error } |
 | on:init-error | Google Auth initialisation failure | { error } |
 
+### Developing / Contributing
 
+```bash
+npm run dev
+```

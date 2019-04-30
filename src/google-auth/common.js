@@ -1,6 +1,5 @@
 import retry from '@beyonk/promise-retry'
 
-
 const provider = 'BEYONK'
 const lib = '@beyonk/svelte-social-auth/google'
 const libUrl = '//apis.google.com/js/platform.js'

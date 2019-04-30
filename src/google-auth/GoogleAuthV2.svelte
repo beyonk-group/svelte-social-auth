@@ -22,7 +22,7 @@
 
     oncreate () {
       const { clientId } = this.get()
-      mount(clientId, this.refs.signinCta, this.fire)
+      mount(clientId, this.refs.signinCta, this.fire.bind(this))
     },
 
     components: {

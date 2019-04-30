@@ -22,12 +22,12 @@
 
     oncreate () {
       const { appId } = this.get()
-      mount(appId, this.fire)
+      mount(appId, this.fire.bind(this))
     },
 
     methods: {
       login () {
-        login(this.fire)
+        login(this.fire.bind(this))
       }
     },
 

@@ -9,7 +9,6 @@ function login (dispatch) {
   const FB = window['FB']
   FB.login(function (response) {
     if (response.authResponse) {
-      console.log(response)
       FB.api('/me', function (me) {
         dispatch('auth-success', { 
           authResponse: response.authResponse,

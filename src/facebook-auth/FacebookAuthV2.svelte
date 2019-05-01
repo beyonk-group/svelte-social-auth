@@ -4,6 +4,7 @@
 
 <style>
   button {
+    width: 100%;
     border: 0;
     background-color: #4285F4;
     display: flex;
@@ -11,6 +12,7 @@
     align-items: center;
     border-radius: 2px;
     padding: 1px;
+    cursor: pointer;
   }
 </style>
 

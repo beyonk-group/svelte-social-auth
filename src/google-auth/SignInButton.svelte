@@ -5,10 +5,10 @@
   img {
     background: white;
     padding: 4px;
-    height: 36px;
-    width: 36px;
+    height: 30px;
+    width: 30px;
     border-radius: 2px;
-    margin: 0;
+    margin: 4px;
   }
 
   span {

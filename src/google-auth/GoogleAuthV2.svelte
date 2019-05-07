@@ -1,5 +1,5 @@
 <button ref:signinCta>
-  <SignInButton />
+  <SignInButton {text} />
 </button>
 
 <style>
@@ -17,10 +17,16 @@
 </style>
 
 <script>
-  import { mount } from './common'
+  import { mount, defaultText } from './common'
 
   export default {
     props: [ 'clientId' ],
+
+    data () {
+      return {
+        text: defaultText
+      }
+    },
 
     oncreate () {
       const { clientId } = this.get()

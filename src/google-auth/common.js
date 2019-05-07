@@ -65,6 +65,9 @@ async function mount (clientId, signinCta, dispatch) {
   }))
 }
 
+const defaultText = 'Sign in with Google'
+
 export {
-  mount
+  mount,
+  defaultText
 }

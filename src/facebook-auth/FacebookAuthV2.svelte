@@ -1,5 +1,5 @@
 <button on:click="login()">
-  <SignInButton />
+  <SignInButton {text} />
 </button>
 
 <style>
@@ -21,6 +21,12 @@
 
   export default {
     props: [ 'appId' ],
+
+    data () {
+      return {
+        text: 'Sign in with Facebook'
+      }
+    },
 
     oncreate () {
       const { appId } = this.get()

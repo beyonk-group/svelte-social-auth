@@ -1,5 +1,5 @@
 <button on:click={() => login(dispatch) }>
-  <SignInButton />
+  <SignInButton {text} />
 </button>
 
 <style>
@@ -19,11 +19,12 @@
 <script>
   import SignInButton from './SignInButton.svelte'
   import { onMount, createEventDispatcher } from 'svelte'
-  import { login, mount } from './common.js'
+  import { login, mount, buttonText } from './common.js'
 
   const dispatch = createEventDispatcher()
 
   export let appId
+  export let text = buttonText
 
   onMount(() => {
     mount(appId, dispatch)

@@ -1,5 +1,5 @@
 <button bind:this={signinCta}>
-  <SignInButton />
+  <SignInButton {text} />
 </button>
 
 <style>
@@ -19,12 +19,13 @@
 <script>
   import SignInButton from './SignInButton.svelte'
   import { onMount, createEventDispatcher } from 'svelte'
-  import { mount } from './common'
+  import { mount, defaultText } from './common'
 
   const dispatch = createEventDispatcher()
 
   let signinCta
   export let clientId
+  export let text = defaultText
 
   onMount(() => {
     mount(clientId, signinCta, dispatch)

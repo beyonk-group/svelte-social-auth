@@ -8,17 +8,21 @@ const libUrl = '//connect.facebook.net/en_GB/sdk.js'
 function login (dispatch) {
   const FB = window['FB']
   FB.login(function (response) {
-    if (response.authResponse) {
-      FB.api('/me', function (me) {
-        dispatch('auth-success', { 
-          authResponse: response.authResponse,
-          user: me
-        })
-      });
+    if (response.status === 'connected') {
+      const authResponse = response.authResponse
+      const userId = authResponse.userID
+      const accessToken = authResponse.accessToken
+
+      console.log('success')
+      dispatch('auth-success', { 
+        accessToken,
+        userId
+      })
     } else {
+      console.log(Object.keys(response))
       dispatch('auth-info', { response })
     }
-  }, {scope: 'email,user_likes'})
+  }, { scope: 'email,user_likes,public_profile' })
 }
 
 function init (appId) {
@@ -61,7 +65,10 @@ async function mount (appId, dispatch) {
   init(appId)
 }
 
+const defaultText = 'Sign in with Facebook'
+
 export {
   login,
-  mount
+  mount,
+  defaultText
 }

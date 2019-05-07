@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-    padding: 1px;
+    padding: 5px 1px;
     cursor: pointer;
   }
 </style>

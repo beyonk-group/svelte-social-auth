@@ -35,6 +35,12 @@ Svelte v3 + v2
 
 ### Attributes
 
+Common attributes:
+
+| Attribute | Description | Type | Default |
+|---|---|---| --- |
+| text | Text of the sign-in button | string | 'Sign in with <Provider>' |
+
 The attributes for the GoogleAuth component are:
 
 | Attribute | Description | Type | Default |

@@ -17,14 +17,14 @@
 </style>
 
 <script>
-  import { login, mount } from './common.js'
+  import { login, mount, defaultText } from './common.js'
 
   export default {
     props: [ 'appId' ],
 
     data () {
       return {
-        text: 'Sign in with Facebook'
+        text: defaultText
       }
     },
 

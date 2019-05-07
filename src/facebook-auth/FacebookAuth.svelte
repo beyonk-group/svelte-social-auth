@@ -19,12 +19,12 @@
 <script>
   import SignInButton from './SignInButton.svelte'
   import { onMount, createEventDispatcher } from 'svelte'
-  import { login, mount, buttonText } from './common.js'
+  import { login, mount, defaultText } from './common.js'
 
   const dispatch = createEventDispatcher()
 
   export let appId
-  export let text = buttonText
+  export let text = defaultText
 
   onMount(() => {
     mount(appId, dispatch)

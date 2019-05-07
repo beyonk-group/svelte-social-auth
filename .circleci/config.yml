@@ -23,7 +23,7 @@ jobs:
       - store_test_results:
           path: reports/junit
 
-  publish-v3:
+  publish:
     docker:
       - image: circleci/node:10
 

@@ -10,7 +10,6 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@beyonk/promise-retry": "^0.1.1",
     "@gen/rollup-plugin-generate-html": "^0.1.1",
     "rollup": "^1.10.1",
     "rollup-plugin-commonjs": "^9.3.4",
@@ -37,5 +36,8 @@
     "src",
     "index.mjs",
     "index.js"
-  ]
+  ],
+  "dependencies": {
+    "@beyonk/promise-retry": "^0.1.1"
+  }
 }

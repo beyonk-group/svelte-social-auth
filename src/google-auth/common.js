@@ -7,12 +7,13 @@ const libUrl = '//apis.google.com/js/platform.js'
 function onAuthenticate (GoogleAuth, signinCta, dispatch) {
   GoogleAuth.attachClickHandler(signinCta, {},
     () => {
+      console.error('auth success')
       dispatch('auth-success', {
         user: GoogleAuth.currentUser.get()
       })
     },
     e => {
-      console.error(e)
+      console.error('auth failure', e)
       dispatch('auth-failure', {
         error: e
       })
@@ -26,10 +27,11 @@ function init (clientId, signinCta, dispatch) {
     const GoogleAuth = gapi.auth2.init({ client_id: clientId })
     GoogleAuth.then(
       () => {
+        console.error('gauth initialised')
         onAuthenticate(GoogleAuth, signinCta, dispatch)
       },
       e => {
-        console.error(e)
+        console.error('gauth initialisation error', e)
         dispatch('init-error', { error: e })
       })
   })

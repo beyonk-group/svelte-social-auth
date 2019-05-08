@@ -13,13 +13,11 @@ function login (dispatch) {
       const userId = authResponse.userID
       const accessToken = authResponse.accessToken
 
-      console.log('success')
       dispatch('auth-success', { 
         accessToken,
         userId
       })
     } else {
-      console.log(Object.keys(response))
       dispatch('auth-info', { response })
     }
   }, { scope: 'email,user_likes,public_profile' })
@@ -30,7 +28,7 @@ function init (appId) {
   FB.init({
     appId      : appId,
     cookie     : true,
-    xfbml      : true,
+    xfbml      : false,
     version    : version
   })
 }

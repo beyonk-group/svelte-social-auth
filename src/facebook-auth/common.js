@@ -13,14 +13,14 @@ function login (dispatch) {
       const userId = authResponse.userID
       const accessToken = authResponse.accessToken
 
-      dispatch('auth-success', { 
+      dispatch('auth-success', {
         accessToken,
         userId
       })
     } else {
       dispatch('auth-info', { response })
     }
-  }, { scope: 'email,user_likes,public_profile' })
+  }, { scope: 'email,public_profile' })
 }
 
 function init (appId) {

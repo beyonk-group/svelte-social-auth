@@ -27,7 +27,6 @@ function init (clientId, signinCta, dispatch) {
     const GoogleAuth = gapi.auth2.init({ client_id: clientId })
     GoogleAuth.then(
       () => {
-        console.error('gauth initialised')
         onAuthenticate(GoogleAuth, signinCta, dispatch)
       },
       e => {

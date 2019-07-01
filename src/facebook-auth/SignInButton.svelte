@@ -18,3 +18,7 @@
     color: white;
   }
 </style>
+
+<script>
+  export let text
+</script>

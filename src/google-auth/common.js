@@ -7,13 +7,11 @@ const libUrl = '//apis.google.com/js/platform.js'
 function onAuthenticate (GoogleAuth, signinCta, dispatch) {
   GoogleAuth.attachClickHandler(signinCta, {},
     () => {
-      console.error('auth success')
       dispatch('auth-success', {
         user: GoogleAuth.currentUser.get()
       })
     },
     e => {
-      console.error('auth failure', e)
       dispatch('auth-failure', {
         error: e
       })

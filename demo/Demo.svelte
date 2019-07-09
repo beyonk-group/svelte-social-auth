@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-lg-2 col-xs-12 left">
 				<div id="logo">
-					<img src="{logo}" alt="vdoc">
+					{@html logo}
 				</div>
 			</div>
 			<div class="col-lg-8 col-md-7 col-xs-12">
@@ -48,12 +48,12 @@
 					{/if}
 					{#if page === 'facebook-auth'}
 					<div class="section-txt" id="facebook-auth">
-						<!-- <FacebookAuth 
+						<FacebookAuth 
 							appId="%FACEBOOK_APP_ID%"
 							on:init-error={ev => alert(ev.detail.error.message)}
 							on:auth-failure={ev => alert('auth failure')}
-							on:auth-success={ev => console.dir(ev.detail.user) }
-						/> -->
+							on:auth-success={ev => console.dir(ev.detail) }
+						/>
           </div>
 					{/if}
 				</div>
@@ -81,9 +81,8 @@
 </footer>
 
 <style>
-	.map-wrap {
-		width: 100%;
-		height: 300px;
+	#logo :global(svg) {
+		height: 40px;
 	}
 </style>
 
@@ -94,7 +93,7 @@
 
 	import logo from './logo.svg'
 
-	import { GoogleAuth } from '../src/components'
+	import { GoogleAuth, FacebookAuth } from '../src/components'
 
 	let page = 'google-auth'
 	

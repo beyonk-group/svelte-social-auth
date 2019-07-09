@@ -4,7 +4,6 @@ import serve from 'rollup-plugin-serve'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import css from 'rollup-plugin-postcss'
-import ts from 'rollup-plugin-typescript'
 import html from '@gen/rollup-plugin-generate-html'
 import replace from 'rollup-plugin-replace'
 import svg from 'rollup-plugin-svg'
@@ -18,7 +17,6 @@ const name = pkg.name
 const dev = process.env.NODE_ENV === 'development'
 
 const plugins = [
-	ts(),
 	resolve(),
 	commonjs(),
 	css(),

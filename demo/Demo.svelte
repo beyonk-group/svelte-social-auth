@@ -48,12 +48,12 @@
 					{/if}
 					{#if page === 'facebook-auth'}
 					<div class="section-txt" id="facebook-auth">
-						<FacebookAuth 
+						<!-- <FacebookAuth 
 							appId="%FACEBOOK_APP_ID%"
 							on:init-error={ev => alert(ev.detail.error.message)}
 							on:auth-failure={ev => alert('auth failure')}
 							on:auth-success={ev => console.dir(ev.detail.user) }
-						/>
+						/> -->
           </div>
 					{/if}
 				</div>
@@ -94,7 +94,7 @@
 
 	import logo from './logo.svg'
 
-	import { GoogleAuth, FacebookAuth } from '../src/components'
+	import { GoogleAuth } from '../src/components'
 
 	let page = 'google-auth'
 	

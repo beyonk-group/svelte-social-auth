@@ -20,12 +20,9 @@ const dev = process.env.NODE_ENV === 'development'
 const plugins = [
 	ts(),
 	resolve(),
-	commonjs({
-		include: /node_modules/
-	}),
+	commonjs(),
 	css(),
-	svelte({
-	})
+	svelte()
 ]
 
 const output = [

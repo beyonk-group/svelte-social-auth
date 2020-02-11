@@ -10,7 +10,6 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@beyonk/async-script-loader": "^1.0.3",
     "@gen/rollup-plugin-generate-html": "^0.1.1",
     "rollup": "^1.16.7",
     "rollup-plugin-commonjs": "^9.3.4",
@@ -41,5 +40,7 @@
     "index.mjs",
     "index.js"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "@beyonk/async-script-loader": "^1.0.3"
+  }
 }

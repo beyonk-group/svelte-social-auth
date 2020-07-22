@@ -4,37 +4,40 @@
 </button>
 
 <style>
-  button {
-    width: 100%;
-    border: 0;
-    background-color: #4285F4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2px;
-    padding: 5px 1px;
-    cursor: pointer;
-  }
+  
+  .google-auth {
+    button {
+      width: 100%;
+      border: 0;
+      background-color: #4285F4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      padding: 5px 1px;
+      cursor: pointer;
+    }
 
-  button:disabled {
-    background-color: grey;
-  }
+    button:disabled {
+      background-color: grey;
+    }
 
-  img {
-    background: white;
-    padding: 4px;
-    height: 30px;
-    width: 30px;
-    border-radius: 2px;
-    margin: 4px;
-  }
+    img {
+      background: white;
+      padding: 4px;
+      height: 30px;
+      width: 30px;
+      border-radius: 2px;
+      margin: 4px;
+    }
 
-  span {
-    font-family: Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 0 12px;
-    color: white;
+    span {
+      font-family: Roboto, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 0 12px;
+      color: white;
+    }
   }
 </style>
 

@@ -4,38 +4,38 @@
 </button>
 
 <style>
-  .facebook-ayth {
-    button {
-    width: 100%;
-    border: 0;
-    background-color: #4285F4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2px;
-    padding: 5px 1px;
-    cursor: pointer;
-  }
+  .facebook-auth {
+      button {
+      width: 100%;
+      border: 0;
+      background-color: #4285F4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      padding: 5px 1px;
+      cursor: pointer;
+    }
 
-  button:disabled {
-    background-color: grey;
-  }
+    button:disabled {
+      background-color: grey;
+    }
 
-  img {
-    padding: 4px;
-    height: 36px;
-    width: 36px;
-    border-radius: 2px;
-    margin: 0;
-  }
+    img {
+      padding: 4px;
+      height: 36px;
+      width: 36px;
+      border-radius: 2px;
+      margin: 0;
+    }
 
-  span {
-    font-family: Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 0 12px;
-    color: white;
-  }
+    span {
+      font-family: Roboto, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 0 12px;
+      color: white;
+    }
   }
 </style>
 

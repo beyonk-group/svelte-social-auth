@@ -4,7 +4,8 @@
 </button>
 
 <style>
-  button {
+  .facebook-ayth {
+    button {
     width: 100%;
     border: 0;
     background-color: #4285F4;
@@ -34,6 +35,7 @@
     font-weight: bold;
     padding: 0 12px;
     color: white;
+  }
   }
 </style>
 

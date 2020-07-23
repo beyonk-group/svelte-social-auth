@@ -3,7 +3,7 @@
   <span>{text}</span>
 </button>
 
-<style type="scss">
+<style>
   
   button.google-auth {
     width: 100%;

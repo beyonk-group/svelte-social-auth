@@ -3,7 +3,7 @@
   <span>{text}</span>
 </button>
 
-<style type="scss">
+<style>
   button.facebook-auth {
     width: 100%;
     border: 0;

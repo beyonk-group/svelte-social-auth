@@ -33,6 +33,32 @@ Svelte v3 + v2
 </script>
 ```
 
+## Style Override
+
+You can override default style by overriding classes. `google-auth` for Google Auth and `facebook-auth` for Facebook Auth button.
+
+```jsx
+:global(button.google-auth) {
+    padding: 8px 16px !important;
+    justify-content: flex-start !important;
+  }
+
+  :global(button.google-auth img) {
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 16px !important;
+    padding: 2px !important;
+  }
+  :global(button.google-auth span) {
+    display: flex;
+    flex: 1;
+    font-size: 14px !important;
+    line-height: 1.5;
+    justify-content: center;
+    font-weight: 300 !important;
+  }
+```
+
 ### Attributes
 
 Common attributes:

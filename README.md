@@ -11,6 +11,9 @@ Google and Facebook Auth
 SSR Ready
 Svelte v3 + v2
 
+## installation
+````npm i @beyonk/svelte-social-auth````
+
 ## Usage
 
 ```jsx
@@ -32,6 +35,27 @@ Svelte v3 + v2
   import { GoogleAuth, FacebookAuth } from '@beyonk/svelte-social-auth/src/components.v2.js'
 </script>
 ```
+
+## Adaption for Sapper
+
+Sapper gives the error "Error: <GoogleAuth> is not a valid SSR component. You may need to review your build config to ensure that dependencies are compiled, rather than imported as pre-compiled modules". The same is true for <facebookAuth>.  To get arround this problem, load the components client side later. 
+
+````jsx
+<script>
+	import { onMount } from 'svelte';
+	
+	let GoogleAuth;
+	let FacebookAuth;
+	onMount(async () => {
+		const module = await import('@beyonk/svelte-social-auth');
+		GoogleAuth = module.GoogleAuth;
+		FacebookAuth = module.FacebookAuth
+	});
+</script>
+
+<svelte:component this={GoogleAuth} clientId="your-google-auth-client-id" on:auth-success={e => console.dir(e.detail.user)} />
+<svelte:component this={FacebookAuth} appId="your-facebook-app-id" on:auth-success={e => console.dir(e.detail.user)} />
+````
 
 ### Attributes
 

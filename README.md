@@ -11,6 +11,9 @@ Google and Facebook Auth
 SSR Ready
 Svelte v3 + v2
 
+## installation
+````npm i @beyonk/svelte-social-auth --save-dev````
+
 ## Usage
 
 ```jsx

@@ -7,8 +7,8 @@ class="google-auth">
 
 <style>
   
-  button.google-auth {
-    width: 100%;
+  button {
+    width: var(--button-width);
     border: 0;
     background-color: var(--button-color);
     display: flex;
@@ -19,11 +19,11 @@ class="google-auth">
     cursor: pointer;
   }
 
-  button.google-auth:disabled {
+  button:disabled {
     background-color: var(--button-disabled-color)
   }
 
-  .google-auth img {
+  img {
     background: white;
     padding: 4px;
     height: 30px;
@@ -32,7 +32,7 @@ class="google-auth">
     margin: 4px;
   }
 
-  .google-auth span {
+  span {
     font-family: Roboto, sans-serif;
     font-size: 14px;
     font-weight: bold;

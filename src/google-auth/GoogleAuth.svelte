@@ -37,7 +37,7 @@ class="google-auth">
     font-size: 14px;
     font-weight: bold;
     padding: 0 12px;
-    color: var(--text-color);
+    color: var(--button-text-color);
   }
 </style>
 

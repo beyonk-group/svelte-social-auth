@@ -1,5 +1,4 @@
-<p align="center">
-  <img width="186" height="90" src="https://user-images.githubusercontent.com/218949/44782765-377e7c80-ab80-11e8-9dd8-fce0e37c235b.png" alt="Beyonk" />
+   <img width="186" height="90" src="https://user-images.githubusercontent.com/218949/44782765-377e7c80-ab80-11e8-9dd8-fce0e37c235b.png" alt="Beyonk" />
 </p>
 
 ## Svelte Social Auth
@@ -45,10 +44,7 @@ Common attributes:
 | text | Text of the sign-in button | string | 'Sign in with <Provider>' |
 | buttonBackgroundColor | Hex, Named or rgb version of the button background color | string | '#4285F4' |
 | disabledButtonBackgroundColor | Hex, Named or rgb version of the button background color, disabled state | string | 'grey' |
-| buttonTextColor | Hex, Named or rgb version of the button text color | string | '#FFFFFF' |
-| buttonWidth | %, PX, EM, VH width, or auto for default | string | '100%' |
-
-The attributes for the GoogleAuth component are:
+| buttonTextColor | Hex, Named or rgb version of the button text color | string | '#FFFFFF' | The attributes for the GoogleAuth component are:
 
 | Attribute | Description | Type | Default |
 |---|---|---| --- |

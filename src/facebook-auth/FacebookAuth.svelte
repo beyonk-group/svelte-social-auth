@@ -83,6 +83,6 @@
       } else {
         dispatch('auth-info', { response })
       }
-    }, { scope: 'email,public_profile' })
+    }, { scope: 'public_profile, email' })
   }
 </script>

@@ -47,6 +47,10 @@ Common attributes:
 | Attribute | Description | Type | Default |
 |---|---|---| --- |
 | text | Text of the sign-in button | string | 'Sign in with <Provider>' |
+| buttonBackgroundColor | Hex, Named or rgb version of the button background color | string | '#4285F4' |
+| disabledButtonBackgroundColor | Hex, Named or rgb version of the button background color, disabled state | string | 'grey' |
+| buttonTextColor | Hex, Named or rgb version of the button text color | string | '#FFFFFF' |
+| buttonWidth | %, PX, EM, VW width, or auto for default | string | '100%' |
 
 The attributes for the GoogleAuth component are:
 

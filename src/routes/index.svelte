@@ -92,7 +92,7 @@
   import './_assets/style.css'
 	import logo from './_assets/logo.png'
 
-	import { GoogleAuth, FacebookAuth } from '$lib/components.js'
+	import { GoogleAuth, FacebookAuth } from '$lib/index.js'
 
 	let page = 'google-auth'
 	

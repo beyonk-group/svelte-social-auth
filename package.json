@@ -1,6 +1,6 @@
 {
   "name": "svelte-social-auth",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "svelte-kit dev --https --port 2088",
     "build": "svelte-kit build",

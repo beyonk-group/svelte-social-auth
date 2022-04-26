@@ -8,12 +8,13 @@
 
 ## Svelte Social Auth
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-social-auth.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-social-auth) [![svelte-v2](https://img.shields.io/badge/svelte-v2-orange.svg)](https://v2.svelte.dev) [![svelte-v3](https://img.shields.io/badge/svelte-v3-blueviolet.svg)](https://svelte.dev)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) (https://circleci.com/gh/beyonk-adventures/svelte-social-auth) [![svelte-v3](https://img.shields.io/badge/svelte-v3-blueviolet.svg)](https://svelte.dev)
 
 Google and Facebook Auth
 
+SvelteKit
 SSR Ready
-Svelte v3 + v2
+Svelte v3
 
 ## installation
 ````npm i @beyonk/svelte-social-auth --save-dev````
@@ -29,15 +30,14 @@ Svelte v3 + v2
 </script>
 ```
 
-## Usage with v2
+### Customising the buttons
 
-```jsx
-<GoogleAuth clientId="your-google-auth-client-id" on:auth-success={e => console.dir(e.detail.user)} />
-<FacebookAuth appId="your-facebook-app-id" on:auth-success={e => console.dir(e.detail.user)} />
+Buttons have default graphics and text, however, both buttons are slotted, so simply put the button content you want inside:
 
-<script>
-  import { GoogleAuth, FacebookAuth } from '@beyonk/svelte-social-auth/src/components.v2.js'
-</script>
+```
+<GoogleAuth>
+  <div>my custom content</div>
+</GoogleAuth>
 ```
 
 ### Attributes
@@ -81,6 +81,14 @@ The events fired by the FacebookAuth component are:
 
 Note that Facebook requires that you have HTTPS locally, despite their documentation to the contrary, so you will need to generate some SSL certs and point rollup config at them.
 
+Put your app and client ids in an `.env` file
+
 ```bash
-GOOGLE_CLIENT_ID=<your-google-client-id> FACEBOOK_APP_ID=<your-facebook-app-id> npm run dev
+.env.local
+VITE_GOOGLE_CLIENT_ID=<your-google-client-id>
+VITE_FACEBOOK_APP_ID=<your-facebook-app-id>
+``
+
+```bash
+pnpm dev
 ```

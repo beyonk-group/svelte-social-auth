@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-lg-2 col-xs-12 left">
 				<div id="logo">
-					{@html logo}
+					<img src={logo} alt="Beyonk">
 				</div>
 			</div>
 			<div class="col-lg-8 col-md-7 col-xs-12">
@@ -39,7 +39,7 @@
 					{#if page === 'google-auth'}
 					<div class="section-txt" id="google-auth">
 						<GoogleAuth 
-							clientId="%GOOGLE_CLIENT_ID%"
+							clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
 							on:init-error={ev => alert(ev.detail.error.error)}
 							on:auth-failure={ev => alert('auth failure')}
 							on:auth-success={ev => console.dir(ev.detail.user) }
@@ -49,7 +49,7 @@
 					{#if page === 'facebook-auth'}
 					<div class="section-txt" id="facebook-auth">
 						<FacebookAuth 
-							appId="%FACEBOOK_APP_ID%"
+							appId={import.meta.env.VITE_FACEBOOK_APP_ID}
 							on:init-error={ev => alert(ev.detail.error.message)}
 							on:auth-failure={ev => alert('auth failure')}
 							on:auth-success={ev => console.dir(ev.detail) }
@@ -87,18 +87,16 @@
 </style>
 
 <script>
-  import './normalize.css'
-  import './prettify.css'
-  import './style.css'
+  import './_assets/normalize.css'
+  import './_assets/prettify.css'
+  import './_assets/style.css'
+	import logo from './_assets/logo.png'
 
-	import logo from './logo.svg'
-
-	import { GoogleAuth, FacebookAuth } from '../src/components'
+	import { GoogleAuth, FacebookAuth } from '$lib/components.js'
 
 	let page = 'google-auth'
 	
 	function navigate (nextPage) {
 		page = nextPage
 	}
-	
 </script>

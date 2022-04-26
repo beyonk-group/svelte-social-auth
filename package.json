@@ -1,6 +1,6 @@
 {
-  "name": "svelte-social-auth",
-  "version": "1.0.0",
+  "name": "@beyonk/svelte-social-auth",
+  "version": "2.1.1",
   "scripts": {
     "dev": "svelte-kit dev --https --port 2088",
     "build": "svelte-kit build",

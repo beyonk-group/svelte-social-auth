@@ -1,26 +1,24 @@
 {
   "name": "@beyonk/svelte-social-auth",
   "version": "3.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "svelte-kit dev --https --port 2088",
-    "build": "svelte-kit build",
+    "dev": "vite dev --port 2088",
+    "build": "vite build",
     "lint": "eslint .",
     "package": "svelte-kit package",
     "certificates:create": "mkcert create-ca && mkcert create-cert",
     "prepare": "svelte-kit sync"
   },
   "devDependencies": {
-    "@beyonk/eslint-config": "^6.0.0",
+    "@beyonk/eslint-config": "latest",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "eslint": "^8.14.0",
     "mkcert": "^1.5.0",
     "svelte": "^3.44.0",
     "svelte2tsx": "^0.5.9",
-    "typescript": "^4.6.3"
-  },
-  "type": "module",
-  "volta": {
-    "node": "14.19.1"
+    "typescript": "^4.6.3",
+    "vite": "^3.0.0"
   }
 }

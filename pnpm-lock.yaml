@@ -5,11 +5,15 @@ specifiers:
   '@sveltejs/adapter-auto': next
   '@sveltejs/kit': next
   eslint: ^8.14.0
+  jwt-decode: ^3.1.2
   mkcert: ^1.5.0
   svelte: ^3.44.0
   svelte2tsx: ^0.5.9
   typescript: ^4.6.3
   vite: ^3.0.0
+
+dependencies:
+  jwt-decode: 3.1.2
 
 devDependencies:
   '@beyonk/eslint-config': 7.0.2_eslint@8.14.0
@@ -1404,6 +1408,10 @@ packages:
     dependencies:
       minimist: 1.2.6
     dev: true
+
+  /jwt-decode/3.1.2:
+    resolution: {integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==}
+    dev: false
 
   /kleur/4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}

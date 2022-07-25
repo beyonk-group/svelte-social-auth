@@ -53,6 +53,7 @@ The attributes for the GoogleAuth component are:
 | Attribute | Description | Type | Default |
 |---|---|---| --- |
 | clientId | Google service account client id | string | - |
+| scope | Google authentication scope | string | https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid |
 
 The attributes for the FacebookAuth component are:
 
@@ -68,7 +69,6 @@ The events fired by the GoogleAuth component are:
 |---|---|---|
 | on:auth-success | User authentication success | { user } |
 | on:auth-failure | User authentication failure | { error } |
-| on:init-error | Google Auth initialisation failure | { error } |
 
 The events fired by the FacebookAuth component are:
 

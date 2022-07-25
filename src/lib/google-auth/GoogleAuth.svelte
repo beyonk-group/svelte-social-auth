@@ -1,7 +1,7 @@
 <button
   {disabled}
   use:action
-  on:click={handleClick}
+  on:click={triggerPrompt}
 >
   <slot>
     <div class="google-auth">
@@ -52,7 +52,6 @@
 
 <script>
   import { createEventDispatcher } from 'svelte'
-  import decode from 'jwt-decode'
 
   export let clientId
   export let scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid'
@@ -87,7 +86,19 @@
     disabled = false
   }
 
-  function handleClick () {
+  function decode (token) {
+    const base64Url = token.split('.')[1]
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+    const jsonPayload = decodeURIComponent(
+      window.atob(base64).split('').map(
+        c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      ).join('')
+    )
+
+    return JSON.parse(jsonPayload)
+  }
+
+  function triggerPrompt () {
     google.accounts.id.prompt()
   }
 
@@ -97,8 +108,20 @@
       return
     }
 
-    const { name, email, picture } = decode(credential)
+    const {
+      sub: id,
+      name,
+      email,
+      picture
+    } = decode(credential)
 
-    dispatch('auth-success', { user: { name, email, picture } })
+    dispatch('auth-success', {
+      user: {
+        id,
+        name,
+        email,
+        picture
+      }
+    })
   }
 </script>

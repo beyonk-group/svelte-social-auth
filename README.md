@@ -67,7 +67,7 @@ The events fired by the GoogleAuth component are:
 
 | Event | Purpose | Properties |
 |---|---|---|
-| on:auth-success | User authentication success | { user } |
+| on:auth-success | User authentication success | { user, token } |
 | on:auth-failure | User authentication failure | { error } |
 
 The events fired by the FacebookAuth component are:

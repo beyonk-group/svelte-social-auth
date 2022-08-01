@@ -121,7 +121,8 @@
         name,
         email,
         picture
-      }
+      },
+      token: credential
     })
   }
 </script>

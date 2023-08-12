@@ -74,7 +74,7 @@
 
   function initialise () {
     gapi.load('auth2', async () => {
-      googleAuth = gapi.auth2.init({ client_id: clientId })
+      googleAuth = gapi.auth2.getAuthInstance({ client_id: clientId })
       googleAuth.then(attachHandler, handleInitialisationError)
     })
   }
